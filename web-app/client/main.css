@@ -1,40 +1,53 @@
 /* CSS declarations go here */
+
+
+
 body {
   font-family: sans-serif;
-  background-color: #315481;
-  background-image: linear-gradient(to bottom, #315481, #918e82 100%);
   background-attachment: fixed;
- 
+
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
- 
+
   padding: 0;
   margin: 0;
- 
+
   font-size: 14px;
 }
- 
+
+.Logo {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+.horizontal-line{
+  width: 1440px;
+  height: 1px;
+  background-color: #ececec;
+}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
   min-height: 100%;
   background: white;
 }
- 
+
 header {
   background: #d2edf4;
   background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
   padding: 20px 15px 15px 15px;
   position: relative;
 }
- 
+
 #login-buttons {
   display: block;
 }
- 
+
 h1 {
   font-size: 1.5em;
   margin: 0;
@@ -42,13 +55,240 @@ h1 {
   display: inline-block;
   margin-right: 1em;
 }
- 
+
+
+.navbar {
+  height: 115px;
+}
+
+::placeholder {
+  color: #cccccc;
+  opacity: 1; 
+  width: 48px;
+  height: 22px;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+}
+
+.badge1 {
+  position:relative;
+}
+.badge1[data-badge]:after {
+  content:attr(data-badge);
+  position:absolute;
+  top:-5px;
+  right:-3px;
+  font-size:.8em;
+  background:#ffa15f;
+  color:white;
+  width:18px;height:18px;
+  text-align:center;
+  line-height:18px;
+  border-radius:50%;
+  box-shadow:0 0 1px #333;
+}
+
+.searchBox {
+  justify-self: flex-start;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.searchButton {
+  position: absolute;
+  justify-self: flex-end;
+  right: 6px;
+  align-self: center;
+  background-color:transparent;
+  border: none;
+  outline: none;
+}
+
+.login-register a {
+  text-decoration: none !important;
+  color : #4d4d4d;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+}
+.login-register a :hover {
+  text-decoration: none !important;
+}
+.login-register .login-button  {
+  text-decoration: none !important;
+  color : #ffa15f;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  width: 120px;
+  height: 50px;
+  border-radius: 100px;
+  border: solid 1px #ffa15f;
+  background-color: transparent;
+}
+.login-register .login-button :hover {
+  text-decoration: none !important;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color:#202124  ;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: flex;}
+
+.dropdown:hover .dropbtn {background-color: transparent;}
+
+.login-register a {
+  text-decoration: none !important;
+  color : #4d4d4d;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;}
+.login-register a :hover {
+  text-decoration: none !important;
+}
+
+.cart-button {
+  background-color:transparent;
+  border: none;
+  outline: none;
+}
+
+.login-button {
+  margin-left: 29px;
+  margin-right: 29px;
+}
+
+.logo-container {
+  justify-self: center;
+}
+
+.login-register li{
+  border: none;
+}
+
+.login-register {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  align-items: center
+}
+
+.searchButton i::before {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  opacity: 0.6;
+}
+
+.cart-button i::before {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.searchInput {
+  padding-left: 5%;
+  top: 50%;
+  width: 181px;
+  height: 35px;
+  border-radius: 17px;
+  border: solid 1px #b7b7b7;
+  outline:none;
+}
+
+.searchInput :focus {
+  outline: none;
+}
+
+.row-flex {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 100px !important;
+  padding-right: 100px !important;
+}
+
 form {
   margin-top: 10px;
   margin-bottom: -10px;
   position: relative;
 }
- 
+
+.categories-menu {
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.horizontal-line {
+  width: 100%;
+  height: 2px;
+  background-color: #ececec;
+  margin-top: 15px;
+}
+
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+}
+
 .new-task input {
   box-sizing: border-box;
   padding: 10px 0;
@@ -58,17 +298,17 @@ form {
   padding-right: 80px;
   font-size: 1em;
 }
- 
-.new-task input:focus{
+
+.new-task input:focus {
   outline: 0;
 }
- 
+
 ul {
   margin: 0;
   padding: 0;
   background: white;
 }
- 
+
 .delete {
   float: right;
   font-weight: bold;
@@ -77,49 +317,49 @@ ul {
   border: none;
   position: relative;
 }
- 
+
 li {
   position: relative;
   list-style: none;
   padding: 15px;
   border-bottom: #eee solid 1px;
 }
- 
+
 li .text {
   margin-left: 10px;
 }
- 
+
 li.checked {
   color: #888;
 }
- 
+
 li.checked .text {
   text-decoration: line-through;
 }
- 
+
 li.private {
   background: #eee;
   border-color: #ddd;
 }
- 
+
 header .hide-completed {
   float: right;
 }
- 
+
 .toggle-private {
   margin-left: 5px;
 }
- 
+
 @media (max-width: 600px) {
   li {
     padding: 12px 15px;
   }
- 
+
   .search {
     width: 150px;
     clear: both;
   }
- 
+
   .new-task input {
     padding-bottom: 5px;
   }
