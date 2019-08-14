@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { withHistory } from "react-router-dom";
 import MainContainer from "./MainContainer.jsx";
+import RegisterModal from "../modals/RegisterModal";
+import LoginModal from "../modals/LoginModal";
+
 
 export default class AppContainer extends Component {
   constructor(props) {
@@ -42,14 +45,14 @@ export default class AppContainer extends Component {
         <nav className="navbar">
           <div className="container-fluid">
             <div className="row-flex">
-              <div class="navbar-left searchBox">
+              <div className="navbar-left searchBox">
                 <input
-                  class="searchInput"
+                  className="searchInput"
                   type="text"
                   name=""
                   placeholder="Search"
                 />
-                <button class="searchButton" href="#">
+                <button className="searchButton" href="#">
                   <i className="fa fa-search" />
                 </button>
               </div>
@@ -59,10 +62,22 @@ export default class AppContainer extends Component {
                 </a>
               </div>
               <div className="login-register navbar-nav">
-                <a href="#" className="register-button">
+                <button
+                  href="#"
+                  className="register-button btn btn-info btn-lg"
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#registerModal"
+                >
                   Register
-                </a>
-                <button href="#" className="login-button">
+                </button>
+                <button
+                  href="#"
+                  className="login-button btn btn-info btn-lg"
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#loginModal"
+                >
                   Login
                 </button>
                 <button href="" class="badge1 cart-button " data-badge="7">
@@ -71,44 +86,72 @@ export default class AppContainer extends Component {
               </div>
             </div>
 
-            <div className="horizontal-line" ></div>
+            <div className="horizontal-line" />
 
             <div className="row-flex categories-menu">
-              <div class="dropdown">
-                <button class="dropbtn">Mens</button>
-                <div class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
+              <div className="dropdown">
+                <button className="dropbtn">
+                  Mens <i className="fa fa-caret-down" />
+                </button>
+                <div className="dropdown-content">
+                  <a href="#">Tops</a>
+                  <a href="#">Bottoms</a>
+                  <a href="#">Dresses</a>
+                  <a href="#">Jackets</a>
+                  <a href="#">Shoes</a>
+                  <a href="#">Accessories</a>
+                  <a href="#">Sale</a>
                 </div>
               </div>
-              <div class="dropdown">
-                <button class="dropbtn">Ladies</button>
-                <div class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
+              <div className="dropdown">
+                <button className="dropbtn">
+                  Ladies <i className="fa fa-caret-down" />
+                </button>
+                <div className="dropdown-content">
+                  <a href="#">Tops</a>
+                  <a href="#">Bottoms</a>
+                  <a href="#">Dresses</a>
+                  <a href="#">Jackets</a>
+                  <a href="#">Shoes</a>
+                  <a href="#">Accessories</a>
+                  <a href="#">Sale</a>
                 </div>
               </div>
-              <div class="dropdown">
-                <button class="dropbtn">Girls</button>
-                <div class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
+              <div className="dropdown">
+                <button className="dropbtn">
+                  Girls <i className="fa fa-caret-down" />
+                </button>
+                <div className="dropdown-content">
+                  <a href="#">Tops</a>
+                  <a href="#">Bottoms</a>
+                  <a href="#">Dresses</a>
+                  <a href="#">Jackets</a>
+                  <a href="#">Shoes</a>
+                  <a href="#">Accessories</a>
+                  <a href="#">Sale</a>
                 </div>
               </div>
-              <div class="dropdown">
-                <button class="dropbtn">Boys</button>
-                <div class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
+              <div className="dropdown">
+                <button className="dropbtn">
+                  Boys <i className="fa fa-caret-down" />
+                </button>
+                <div className="dropdown-content">
+                  <a href="#">Tops</a>
+                  <a href="#">Bottoms</a>
+                  <a href="#">Dresses</a>
+                  <a href="#">Jackets</a>
+                  <a href="#">Shoes</a>
+                  <a href="#">Accessories</a>
+                  <a href="#">Sale</a>
                 </div>
               </div>
             </div>
           </div>
         </nav>
+        {/* Modal Register */}
+        <RegisterModal/>
+        {/* Modal Login */}
+        <LoginModal/>
         <MainContainer />
       </div>
     );
