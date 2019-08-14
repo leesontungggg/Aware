@@ -26,12 +26,14 @@ class LoginModal extends Component {
                     <strong>EMAIL</strong>
                   </h5>
                   <input placeholder="Enter your email..." type="email" />
+                  <p style={{visibility:'hidden'}}>Your email is invalid!</p>
                 </div>
                 <div className="password-field">
                   <h5>
                     <strong>PASSWORD</strong>
                   </h5>
                   <input placeholder="Enter your password..." type="password" />
+                  <p style={{visibility:'hidden'}}>Wrong password</p>
                 </div>
                 <div className="password-option-field">
                   <label class="container-label">
@@ -52,7 +54,7 @@ class LoginModal extends Component {
               <div>
                 <p>
                   Don't have an account?{" "}
-                  <a>
+                  <a href="#" type="button" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">
                     <strong>Register</strong>
                   </a>
                 </p>

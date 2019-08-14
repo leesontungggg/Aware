@@ -9,15 +9,18 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-
   padding: 0;
   margin: 0;
 
   font-size: 14px;
 }
 
+.modal-body .close {
+  outline:none
+}
+
 .Logo {
-  width: 100px;
+  width: 150px;
   height: auto;
   object-fit: contain;
 }
@@ -159,6 +162,7 @@ h1 {
   padding: 16px;
   font-size: 16px;
   border: none;
+  outline:none;
 }
 
 .dropdown {
@@ -291,6 +295,16 @@ h1 {
   text-decoration: none !important;
 }
 
+.register-button:active {
+  background-color: transparent;
+  outline:none
+}
+
+.login-button:active {
+  background-color: transparent;
+  outline:none
+}
+
 .cart-button {
   background-color: transparent;
   border: none;
@@ -331,7 +345,8 @@ h1 {
 }
 
 .searchInput {
-  padding-left: 5%;
+  padding-left: 12%;
+  padding-top: 2px;
   top: 50%;
   width: 181px;
   height: 35px;
@@ -363,14 +378,16 @@ form {
 .categories-menu {
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .container-fluid {
+  padding-left: 0px !important;
+  padding-right: 0px !important; 
+  padding-top:15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
 }
 
 .horizontal-line {

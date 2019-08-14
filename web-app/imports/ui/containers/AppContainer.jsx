@@ -58,7 +58,7 @@ export default class AppContainer extends Component {
               </div>
               <div className="logo-container navbar-header navbar-center">
                 <a className="logo-aware navbar-brand" href="#">
-                  <img src="/logo.png" className="Logo" />
+                  <img src="/logo@2x.png" className="Logo" />
                 </a>
               </div>
               <div className="login-register navbar-nav">
