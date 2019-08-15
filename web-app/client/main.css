@@ -16,7 +16,7 @@ body {
 }
 
 .modal-body .close {
-  outline:none
+  outline: none;
 }
 
 .Logo {
@@ -59,6 +59,19 @@ h1 {
 
 .navbar {
   height: 115px;
+}
+
+.circle {
+  height: 40px;
+  width: 40px;
+  background-color: #b7b7b7;
+  border-radius: 50%;
+  text-align: center;
+  align-items: center;
+}
+
+.fa-user {
+  margin-top: 5px;
 }
 
 ::placeholder {
@@ -149,6 +162,27 @@ h1 {
   text-decoration: none !important;
 }
 
+.username-button i {
+  margin-left: 5px;
+}
+
+.username-button {
+  align-self: center;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  background-color: transparent;
+  color: #202124;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
 .dropbtn {
   font-family: Montserrat;
   font-size: 14px;
@@ -162,7 +196,7 @@ h1 {
   padding: 16px;
   font-size: 16px;
   border: none;
-  outline:none;
+  outline: none;
 }
 
 .dropdown {
@@ -219,7 +253,7 @@ h1 {
 }
 
 .modal-footer div p a {
-  color :#ff7413;
+  color: #ff7413;
 }
 
 .register-confirm-button {
@@ -231,12 +265,23 @@ h1 {
   color: #ffffff;
   margin-top: 20px;
   font-size: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
 
+.register-confirm-button-ready {
+  background-color: #ff7413;
+  outline: none;
+  border: none;
+  width: 70%;
+  height: 50px;
+  color: #ffffff;
+  margin-top: 20px;
+  font-size: 15px;
+  margin-bottom: 20px;
 }
 
 .agree-sentence a {
-  color :#ff7413;
+  color: #ff7413;
 }
 
 .register-body-modal .password-field {
@@ -251,6 +296,43 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.user-dropdown-content div div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.user-dropdown-content div div a {
+  align-self: center;
+  margin-bottom:0px !important;
+  margin-left: 10px;
+  color: #3d3d3f;
+  outline: 0;
+  text-decoration: none;
+}
+
+.user-dropdown {
+  align-self: center;
+  position: relative;
+  display: inline-block;
+}
+
+.user-dropdown:hover .user-dropdown-content {
+  display: block;
+}
+
+.user-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
 }
 
 .dropdown-content a {
@@ -297,12 +379,12 @@ h1 {
 
 .register-button:active {
   background-color: transparent;
-  outline:none
+  outline: none;
 }
 
 .login-button:active {
   background-color: transparent;
-  outline:none
+  outline: none;
 }
 
 .cart-button {
@@ -344,6 +426,42 @@ h1 {
   object-fit: contain;
 }
 
+.input-email {
+  border: none;
+  outline: none;
+  height: 50px;
+  background-color: #f6f6f6;
+  padding-left: 20px;
+}
+
+.input-email-error {
+  outline: none;
+  height: 50px;
+  padding-left: 20px;
+  width: 395px;
+  height: 46px;
+  border: solid 1px #f63f45;
+  background-color: rgba(246, 63, 69, 0.04);
+}
+
+.input-password {
+  border: none;
+  outline: none;
+  height: 50px;
+  background-color: #f6f6f6;
+  padding-left: 20px;
+}
+
+.input-password-error {
+  outline: none;
+  height: 50px;
+  padding-left: 20px;
+  width: 395px;
+  height: 46px;
+  border: solid 1px #f63f45;
+  background-color: rgba(246, 63, 69, 0.04);
+}
+
 .searchInput {
   padding-left: 12%;
   padding-top: 2px;
@@ -383,8 +501,8 @@ form {
 
 .container-fluid {
   padding-left: 0px !important;
-  padding-right: 0px !important; 
-  padding-top:15px;
+  padding-right: 0px !important;
+  padding-top: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -405,32 +523,25 @@ form {
   padding-left: 20px;
 }
 
-.email-field input {
-  border: none;
-  outline: none;
-  height: 50px;
-  background-color: #f6f6f6;
-  padding-left: 20px;
-}
-
-.password-field input {
-  border: none;
-  outline: none;
-  height: 50px;
-  background-color: #f6f6f6;
-  padding-left: 20px;
-}
-
 .name-field p {
-  color : #f63f45;
+  color: #f63f45;
 }
 
 .email-field p {
-  color : #f63f45;
+  color: #f63f45;
 }
 
 .password-field p {
-  color : #f63f45;
+  color: #f63f45;
+}
+
+.error-server-hidden {
+  color: #f63f45;
+  visibility: hidden;
+}
+
+.error-server {
+  color: #f63f45;
 }
 
 .navbar-center {

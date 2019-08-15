@@ -37,6 +37,15 @@
   margin-top: 10px;
 }
 
+.error-server-hidden {
+  color: #f63f45;
+  visibility: hidden;
+}
+
+.error-server {
+  color: #f63f45;
+}
+
 .modal-footer div p a {
   color: #ff7413;
 }
@@ -50,7 +59,19 @@
   color: #ffffff;
   margin-top: 20px;
   font-size: 15px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+.login-confirm-button-ready {
+  background-color: #ff7413;
+  outline: none;
+  border: none;
+  width: 70%;
+  height: 50px;
+  color: #ffffff;
+  margin-top: 20px;
+  font-size: 15px;
+  margin-bottom: 20px;
 }
 
 .agree-sentence a {
@@ -101,6 +122,43 @@
   color: #4d4d4d;
   align-items: center;
   margin-top: 20px;
+}
+
+.input-password {
+  border: none;
+  outline: none;
+  height: 50px;
+  background-color: #f6f6f6;
+  padding-left: 20px;
+}
+
+.input-password-error {
+  outline: none;
+  height: 50px;
+  padding-left: 20px;
+  width: 395px;
+  height: 46px;
+  border: solid 1px #f63f45;
+  background-color: rgba(246, 63, 69, 0.04);
+}
+
+
+.input-email {
+  border: none;
+  outline: none;
+  height: 50px;
+  background-color: #f6f6f6;
+  padding-left: 20px;
+}
+
+.input-email-error {
+  outline: none;
+  height: 50px;
+  padding-left: 20px;
+  width: 395px;
+  height: 46px;
+  border: solid 1px #f63f45;
+  background-color: rgba(246, 63, 69, 0.04);
 }
 
 /* Hide the browser's default checkbox */

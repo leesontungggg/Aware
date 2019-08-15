@@ -1,19 +1,21 @@
 import React, { Component } from "react";
-import { withHistory } from "react-router-dom";
 import MainContainer from "./MainContainer.jsx";
 import RegisterModal from "../modals/RegisterModal";
 import LoginModal from "../modals/LoginModal";
+import { Meteor } from "meteor/meteor";
+import { createContainer } from "meteor/react-meteor-data";
 
-
-export default class AppContainer extends Component {
+class NavigationBar extends Component {
   constructor(props) {
     super(props);
-    this.state = this.getMeteorData();
-    this.logout = this.logout.bind(this);
+    this.state = { isAuthenicated: this.getMeteorData() };
+
+    this.renderUsername = this.renderUsername.bind(this);
+    this.onLogOut = this.onLogOut.bind(this);
   }
 
   getMeteorData() {
-    return { isAuthenticated: Meteor.userId() !== null };
+    return Meteor.userId() !== null;
   }
 
   //   componentWillMount(){
@@ -28,18 +30,26 @@ export default class AppContainer extends Component {
   //     }
   //   }
 
-  logout(e) {
+  onLogOut(e) {
     e.preventDefault();
     Meteor.logout(err => {
       if (err) {
         console.log(err.reason);
       } else {
-        this.props.history.push("/login");
+        window.location.reload();
       }
     });
   }
 
+  renderUsername() {
+    if (this.props.currentUser) {
+      return this.props.currentUser.username;
+    }
+  }
+
   render() {
+    console.log(this.state.isAuthenicated);
+    console.log(this.props.currentUser);
     return (
       <div>
         <nav className="navbar">
@@ -61,7 +71,10 @@ export default class AppContainer extends Component {
                   <img src="/logo@2x.png" className="Logo" />
                 </a>
               </div>
-              <div className="login-register navbar-nav">
+              <div
+                style={{ display: this.state.isAuthenicated ? "none" : "flex" }}
+                className="login-register navbar-nav"
+              >
                 <button
                   href="#"
                   className="register-button btn btn-info btn-lg"
@@ -80,7 +93,41 @@ export default class AppContainer extends Component {
                 >
                   Login
                 </button>
-                <button href="" class="badge1 cart-button " data-badge="7">
+                <button href="" className="badge1 cart-button " data-badge="7">
+                  <i className="fa fa-shopping-cart fa-2x" />
+                </button>
+              </div>
+
+              {/* UserPanel */}
+
+              <div
+                style={{ display: this.state.isAuthenicated ? "flex" : "none" }}
+                className="login-register navbar-nav"
+              >
+                <div className="circle">
+                  <i className="fa fa-user fa-2x" />
+                </div>
+                <div className="user-dropdown">
+                  <button className="username-button ">
+                    {this.renderUsername()} <i className="fa fa-caret-down" />
+                  </button>
+                  <div class="user-dropdown-content">
+                    <div>
+                      <div>
+                        <i class="fa fa-user-circle fa-2x" />
+                        <a href="#">View profile</a>
+                      </div>
+
+                      <div>
+                        <i class="fa fa-user-circle fa-2x" />
+                        <a href="#" onClick={this.onLogOut}>
+                          Log out
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button href="" className="badge1 cart-button " data-badge="7">
                   <i className="fa fa-shopping-cart fa-2x" />
                 </button>
               </div>
@@ -149,11 +196,19 @@ export default class AppContainer extends Component {
           </div>
         </nav>
         {/* Modal Register */}
-        <RegisterModal/>
+        <RegisterModal />
         {/* Modal Login */}
-        <LoginModal/>
+        <LoginModal />
         <MainContainer />
       </div>
     );
   }
 }
+
+export default (AppContainer = createContainer(({ params }) => {
+  const currentUser = Meteor.user();
+  // console.log(currentUser);
+  return {
+    currentUser
+  };
+}, NavigationBar));

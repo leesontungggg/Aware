@@ -5,38 +5,100 @@ class RegisterModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nameValidate: false,
-      emailValidate: false,
-      passwordValidate: false
+      nameValidate: "uncheck",
+      emailValidate: "uncheck",
+      passwordValidate: "uncheck",
+      registerButtonReady: "not",
+      serverError: ""
     };
     this.nameRef = React.createRef();
     this.emailRef = React.createRef();
     this.passwordRef = React.createRef();
     this.onRegisterSubmit = this.onRegisterSubmit.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
+    this.validateEmail = this.validateEmail.bind(this);
+    this.onEmailChange = this.onEmailChange.bind(this);
   }
 
   onRegisterSubmit(event) {
     event.preventDefault();
-    // Accounts.createUser({email:this.emailRef.current.value,password:this.passwordRef.current.value,profile:{name:this.nameRef.current.value}}
-    //     ,(error) => {
-    //         console.log(error);
-    //     })
+    if (this.state.registerButtonReady === "yes") {
+      Accounts.createUser(
+        {
+          username: this.nameRef.current.value,
+          email: this.emailRef.current.value,
+          password: this.passwordRef.current.value,
+          profile: { name: this.nameRef.current.value }
+        },
+        error => {
+          if (error) {
+            this.setState({
+              serverError: error.reason,
+              registerButtonReady: "not"
+            });
+          } else {
+            window.location.reload();
+          }
+          console.log(error.reason);
+        }
+      );
+    }
+  }
 
-    if (this.passwordRef.current.value.length > 6) {
-      this.setState({ passwordValidate: true });
+  validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  onEmailChange(event) {
+    event.preventDefault();
+    if (this.validateEmail(this.emailRef.current.value)) {
+      this.setState({ emailValidate: true });
     } else {
-      this.setState({ passwordValidate: false });
+      this.setState({ emailValidate: false });
+    }
+
+    // This part will check all input field and make the register button clickable
+
+    if (
+      this.nameRef.current.value.length > 1 &&
+      this.validateEmail(this.emailRef.current.value) &&
+      this.passwordRef.current.value.length > 6
+    ) {
+      this.setState({ registerButtonReady: "yes" });
+    } else {
+      this.setState({ registerButtonReady: "not" });
     }
   }
 
   onPasswordChange(event) {
     event.preventDefault();
+
     if (this.passwordRef.current.value.length > 6) {
       this.setState({ passwordValidate: true });
     } else {
       this.setState({ passwordValidate: false });
     }
+
+    console.log(this.validateEmail(this.emailRef.current.value));
+
+    // This part will check all input field and make the register button clickable
+
+    if (
+      this.nameRef.current.value.length > 1 &&
+      this.validateEmail(this.emailRef.current.value) &&
+      this.passwordRef.current.value.length > 6
+    ) {
+      this.setState({ registerButtonReady: "yes" });
+    } else {
+      this.setState({ registerButtonReady: "not" });
+    }
+
+    // if (this.passwordRef.current.value.length > 6) {
+    //   this.setState({ passwordValidate: true });
+    // } else {
+    //   this.setState({ passwordValidate: false });
+    // }
   }
 
   render() {
@@ -61,7 +123,14 @@ class RegisterModal extends Component {
                     type="name"
                     ref={this.nameRef}
                   />
-                  <p style={{ visibility: "hidden" }}>
+                  <p
+                    style={{
+                      visibility:
+                        this.state.nameValidate === "uncheck"
+                          ? "hidden"
+                          : "visible"
+                    }}
+                  >
                     Please enter a valid name!
                   </p>
                 </div>
@@ -70,11 +139,28 @@ class RegisterModal extends Component {
                     <strong>EMAIL</strong>
                   </h5>
                   <input
+                    className={
+                      this.state.emailValidate === "uncheck"
+                        ? "input-email"
+                        : this.state.emailValidate
+                        ? "input-email"
+                        : "input-email-error"
+                    }
                     placeholder="Enter your email..."
                     type="email"
                     ref={this.emailRef}
+                    onChange={this.onEmailChange}
                   />
-                  <p style={{ visibility: "hidden" }}>
+                  <p
+                    style={{
+                      visibility:
+                        this.state.emailValidate === "uncheck"
+                          ? "hidden"
+                          : this.state.emailValidate
+                          ? "hidden"
+                          : "visible"
+                    }}
+                  >
                     Please enter a valid e-mail!
                   </p>
                 </div>
@@ -83,6 +169,13 @@ class RegisterModal extends Component {
                     <strong>PASSWORD</strong>
                   </h5>
                   <input
+                    className={
+                      this.state.passwordValidate === "uncheck"
+                        ? "input-password"
+                        : this.state.passwordValidate
+                        ? "input-password"
+                        : "input-password-error"
+                    }
                     placeholder="Enter your password..."
                     type="password"
                     ref={this.passwordRef}
@@ -90,9 +183,12 @@ class RegisterModal extends Component {
                   />
                   <p
                     style={{
-                      visibility: this.state.passwordValidate
-                        ? "hidden"
-                        : "visible"
+                      visibility:
+                        this.state.passwordValidate === "uncheck"
+                          ? "hidden"
+                          : this.state.passwordValidate
+                          ? "hidden"
+                          : "visible"
                     }}
                   >
                     Your passwords must be more than 6 characters!
@@ -100,20 +196,33 @@ class RegisterModal extends Component {
                 </div>
                 <p className="agree-sentence">
                   By creating an account you agree to the{" "}
-                  <a>
+                  <a href="#">
                     <strong>Terms of Service</strong>
                   </a>{" "}
-                  and
-                  <a>
-                    <strong> Privacy Policy</strong>
+                  and{" "}
+                  <a href="#">
+                    <strong>Privacy Policy</strong>
                   </a>
                 </p>
                 <button
-                  className="register-confirm-button"
+                  className={
+                    this.state.registerButtonReady === "not"
+                      ? "register-confirm-button"
+                      : "register-confirm-button-ready"
+                  }
                   onClick={this.onRegisterSubmit}
                 >
                   <strong>Register</strong>
                 </button>
+                <p
+                  className={
+                    this.state.serverError.length > 3
+                      ? "error-server"
+                      : "error-server-hidden"
+                  }
+                >
+                  {this.state.serverError}
+                </p>
               </div>
             </div>
             <div className="modal-footer">
