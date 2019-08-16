@@ -12,13 +12,12 @@ class LoginModal extends Component {
     };
     this.emailRef = React.createRef();
     this.passwordRef = React.createRef();
-    this.onLoginSubmit = this.onLoginSubmit.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
     this.validateEmail = this.validateEmail.bind(this);
     this.onEmailChange = this.onEmailChange.bind(this);
   }
 
-  onLoginSubmit(event) {
+  onLoginSubmit= event => {
     event.preventDefault();
     if (this.state.loginButtonReady === "yes") {
       Meteor.loginWithPassword(

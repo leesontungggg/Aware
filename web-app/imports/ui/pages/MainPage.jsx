@@ -11,6 +11,7 @@ export default class MainPage extends Component {
   }
 
   render() {
+    console.log('this is authen' + this.props.isAuthed)
     let currentUser = this.props.currentUser;
     let userDataAvailable = currentUser !== undefined;
     let loggedIn = currentUser && userDataAvailable;

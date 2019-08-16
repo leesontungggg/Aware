@@ -1,0 +1,81 @@
+.profile-container {
+  width: 100%;
+  padding-left: 100px;
+  padding-right: 100px;
+  display: flex;
+  flex-direction: row;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav h2 {
+  color: #202124;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.sidenav {
+  height: auto;
+  width: 160px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.edit-and-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-and-header a {
+  margin-left: auto;
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+.edit-and-header h2 {
+  justify-self: flex-start;
+}
+
+.sidenav .yellow {
+  color: #ff6900;
+}
+
+.sidenav .black {
+  color: #4d4d4d;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 0px;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+}
+
+.main .gray-background {
+  width: 481px;
+  height: 303px;
+  background-color: #f9f9f9;
+  margin-top: 13px;
+}
+
+.main {
+  width: 400px;
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding-left: 104px;
+  padding-top: 40px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}

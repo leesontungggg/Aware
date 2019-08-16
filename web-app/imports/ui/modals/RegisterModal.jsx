@@ -80,8 +80,6 @@ class RegisterModal extends Component {
       this.setState({ passwordValidate: false });
     }
 
-    console.log(this.validateEmail(this.emailRef.current.value));
-
     // This part will check all input field and make the register button clickable
 
     if (

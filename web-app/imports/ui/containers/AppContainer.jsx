@@ -48,8 +48,6 @@ class NavigationBar extends Component {
   }
 
   render() {
-    console.log(this.state.isAuthenicated);
-    console.log(this.props.currentUser);
     return (
       <div>
         <nav className="navbar">
@@ -67,7 +65,7 @@ class NavigationBar extends Component {
                 </button>
               </div>
               <div className="logo-container navbar-header navbar-center">
-                <a className="logo-aware navbar-brand" href="#">
+                <a className="logo-aware navbar-brand" href="/">
                   <img src="/logo@2x.png" className="Logo" />
                 </a>
               </div>
@@ -115,7 +113,7 @@ class NavigationBar extends Component {
                     <div>
                       <div>
                         <i class="fa fa-user-circle fa-2x" />
-                        <a href="#">View profile</a>
+                        <a href="/profile">View profile</a>
                       </div>
 
                       <div>
