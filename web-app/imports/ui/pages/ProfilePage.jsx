@@ -8,7 +8,8 @@ export default class ProfilePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuSelect: "setting"
+      menuSelect: "setting",
+      editMode: false,
       //   isAuthenicated: this.getMeteorData()
     };
   }
@@ -17,26 +18,16 @@ export default class ProfilePage extends Component {
   //     return Meteor.userId() !== null ;
   //   };
 
-  componentWillMount() {
-    if (!this.props.currentUser) {
-      this.props.history.push("/");
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (!this.props.currentUser) {
-      this.props.history.push("/");
-    }
-  }
-
   onSettingClick = () => {
     this.setState({ menuSelect: "setting" });
   };
 
   render() {
-    if (this.props.currentUser) {
-      this.props.history.push("/");
-    }
+    console.log(this.props);
+    // if (this.props.currentUser) {
+    //   console.log('Render is running')
+    //   // this.props.history.push("/");
+    // }
     // console.log('this is authen' + this.props.isAuthed)
     // let currentUser = this.props.currentUser;
     // let userDataAvailable = currentUser !== undefined;
@@ -70,10 +61,63 @@ export default class ProfilePage extends Component {
             </div>
 
             <div className="main">
-              <h4>
-                <strong>Information</strong>
-              </h4>
-              <div className="gray-background" />
+              <div className="header-edit">
+                <h4>
+                  <strong>Information</strong>
+                </h4>
+                <a href='#'>
+                  Edit
+                </a>
+              </div>
+
+              <div className="gray-background" style= {{display: this.state.editMode ? 'none' : 'flex'}}>
+                <div className="name-div">
+                  <h4>
+                    <strong>Name</strong>
+                  </h4>
+                  <h5>
+                    {this.props.currentUser
+                      ? this.props.currentUser.username
+                      : ""}
+                  </h5>
+                </div>
+
+                <div className="email-div">
+                  <h4>
+                    <strong>Email</strong>
+                  </h4>
+                  <h5>
+                    {this.props.currentUser
+                      ? this.props.currentUser.emails[0].address
+                      : ""}
+                  </h5>
+                </div>
+              </div>
+
+              <div className="gray-background-edit" style= {{display: this.state.editMode ? 'flex' : 'none'}}>
+                <div className="name-div">
+                  <h4>
+                    <strong>Name</strong>
+                  </h4>
+                  <h5>
+                    {this.props.currentUser
+                      ? this.props.currentUser.username
+                      : ""}
+                  </h5>
+                </div>
+
+                <div className="email-div">
+                  <h4>
+                    <strong>Email</strong>
+                  </h4>
+                  <h5>
+                    {this.props.currentUser
+                      ? this.props.currentUser.emails[0].address
+                      : ""}
+                  </h5>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

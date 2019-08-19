@@ -109,15 +109,15 @@ class NavigationBar extends Component {
                   <button className="username-button ">
                     {this.renderUsername()} <i className="fa fa-caret-down" />
                   </button>
-                  <div class="user-dropdown-content">
+                  <div className="user-dropdown-content">
                     <div>
                       <div>
-                        <i class="fa fa-user-circle fa-2x" />
+                        <i className="fa fa-user-circle fa-2x" />
                         <a href="/profile">View profile</a>
                       </div>
 
                       <div>
-                        <i class="fa fa-user-circle fa-2x" />
+                        <i className="fa fa-user-circle fa-2x" />
                         <a href="#" onClick={this.onLogOut}>
                           Log out
                         </a>

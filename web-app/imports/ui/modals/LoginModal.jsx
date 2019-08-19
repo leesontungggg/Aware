@@ -78,11 +78,11 @@ class LoginModal extends Component {
 
   render() {
     return (
-      <div id="loginModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-              <button type="button" class="close" data-dismiss="modal">
+      <div id="loginModal" className="modal fade" role="dialog">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-body">
+              <button type="button" className="close" data-dismiss="modal">
                 &times;
               </button>
               <div className="login-body-modal">
@@ -133,10 +133,10 @@ class LoginModal extends Component {
                   <p style={{ visibility: "hidden" }}>Wrong password</p>
                 </div>
                 <div className="password-option-field">
-                  <label class="container-label">
+                  <label className="container-label">
                     Remember Password
                     <input type="checkbox" checked="checked" />
-                    <span class="checkmark" />
+                    <span className="checkmark" />
                   </label>
                   <a>Forgot your password?</a>
                 </div>
@@ -161,7 +161,7 @@ class LoginModal extends Component {
                 </p>
               </div>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <div>
                 <p>
                   Don't have an account?{" "}
@@ -178,7 +178,7 @@ class LoginModal extends Component {
               </div>
               {/* <button
                   type="button"
-                  class="btn btn-default"
+                  className="btn btn-default"
                   data-dismiss="modal"
                 >
                   Close

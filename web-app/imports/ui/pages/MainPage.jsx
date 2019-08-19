@@ -11,15 +11,17 @@ export default class MainPage extends Component {
   }
 
   render() {
-    console.log('this is authen' + this.props.isAuthed)
+    console.log('this is running')
+
     let currentUser = this.props.currentUser;
     let userDataAvailable = currentUser !== undefined;
     let loggedIn = currentUser && userDataAvailable;
+    // console.log(currentUser)
     return (
       <div>
         <div className="container">
           <h1 className="text-center">
-            {loggedIn ? "Welcome " + currentUser.username : ""}
+            FUCKK
           </h1>
         </div>
       </div>
