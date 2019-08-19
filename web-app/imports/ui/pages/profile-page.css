@@ -68,6 +68,17 @@ body {
   justify-content: space-between;
 }
 
+.main .gray-background-edit {
+  width: 481px;
+  height: 400px;
+  background-color: #f9f9f9;
+  margin-top: 13px;
+  padding: 30px 50px 30px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .main {
   width: 400px;
   font-size: 28px; /* Increased text to enable scrolling */
@@ -90,6 +101,50 @@ body {
   outline: 0;
   text-decoration: none;
   font-size: 15px;
+}
+
+.email-field p {
+  color: #f63f45;
+}
+
+.gray-background-edit .email-field {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+.gray-background-edit .name-field {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+
+
+.gray-background-edit .name-field  .input-name {
+  border: none;
+  outline: none;
+  height: 50px;
+  background-color: #ffffff;
+}
+
+.gray-background-edit .email-field  .input-email {
+  border: none;
+  outline: none;
+  height: 50px;
+  background-color: #ffffff;
+}
+
+.gray-background-edit .email-field .input-email-error {
+  outline: none;
+  height: 50px;
+  padding-left: 20px;
+  width: 395px;
+  height: 46px;
+  border: solid 1px #f63f45;
+  background-color: rgba(246, 63, 69, 0.04);
 }
 
 @media screen and (max-height: 450px) {
